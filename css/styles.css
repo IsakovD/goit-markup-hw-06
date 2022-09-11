@@ -875,7 +875,7 @@ button {
 }
 
 .footer-container > .footer-block:not(:last-child) {
-	margin-right: 93px;
+	margin-right: 70px;
 }
 
 .footer-social-list {
@@ -959,6 +959,7 @@ button {
 }
 
 .form-block {
+	margin-left: 23px;
 	position: relative;
 	width: 570px;
 }
@@ -991,4 +992,8 @@ button {
 }
 .form-button:active {
 	transform: translate(37%, -16%) scale(0.95);
+}
+
+address > .list {
+	width: 231px;
 }
