@@ -485,6 +485,9 @@ button {
 .modal-form-field {
 	display: block;
 	position: relative;
+}
+
+.modal-label-group > .modal-form-field:not(:last-child) {
 	margin-bottom: 10px;
 }
 
@@ -508,6 +511,7 @@ button {
 
 .comment {
 	width: 100%;
+	height: 120px;
 	padding: 12px 16px;
 	resize: none;
 	border: 1px solid rgba(33, 33, 33, 0.2);
@@ -515,22 +519,16 @@ button {
 	transition: border-color 250ms var(--cubic);
 }
 
-.comment-placeholder {
-	position: absolute;
-	left: 0;
-	padding: 13px 16px;
-
+.comment::placeholder {
 	font-size: 12px;
 	line-height: 1.167;
 	letter-spacing: 0.01em;
 
 	color: rgba(117, 117, 117, 0.5);
-
-	transition: opacity 250ms var(--cubic);
 }
 
-.comment:not(:placeholder-shown) + .comment-placeholder {
-	opacity: 0;
+.modal-label-group {
+	margin-bottom: 20px;
 }
 
 .modal-form-label {
@@ -542,7 +540,9 @@ button {
 	color: var(--secondary-color);
 }
 .form-input:focus,
-.comment:focus {
+.comment:focus,
+.form-input:hover,
+.comment:hover {
 	border-color: var(--accent-color);
 	outline: none;
 }
@@ -567,11 +567,15 @@ button {
 .form-input:focus-within + .modal-icon {
 	color: var(--accent-color);
 }
+.form-input:hover + .modal-icon {
+	color: var(--accent-color);
+}
 
 .checkbox {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 30px;
 }
 .checkbox-none {
 	appearance: none;
@@ -632,7 +636,6 @@ button {
 	display: flex;
 	width: 200px;
 	height: 50px;
-	margin-top: 20px;
 
 	padding: 10px 52px;
 	align-items: center;
@@ -872,9 +875,15 @@ button {
 .footer-container {
 	display: flex;
 	align-items: baseline;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .footer-container > .footer-block:not(:last-child) {
+	margin-right: 93px;
+}
+
+.footer-container > .footer-block:first-child {
 	margin-right: 70px;
 }
 
@@ -937,7 +946,6 @@ button {
 }
 
 .footer-input {
-	position: relative;
 	width: 358px;
 	height: 50px;
 	padding: 15px;
@@ -959,31 +967,28 @@ button {
 }
 
 .form-block {
-	margin-left: 23px;
-	position: relative;
 	width: 570px;
 }
 .form-button {
-	position: absolute;
 	display: flex;
-	top: 50%;
-	left: 50%;
-	transform: translate(37%, -16%);
-	margin-left: 10px;
+	align-items: center;
+
+	margin: 0;
+	margin-left: auto;
 
 	width: 200px;
 	height: 50px;
-
 	padding: 10px 28px;
-	align-items: center;
-	justify-content: center;
 
 	font-size: 16px;
 	transition: box-shadow 250ms var(--cubic), transform 250ms var(--cubic);
 }
-
 .form-button > .social-icon {
 	margin-left: 10px;
+}
+
+.form-field {
+	display: flex;
 }
 
 .form-button:hover,
@@ -991,7 +996,7 @@ button {
 	box-shadow: 0px 4px 4px rgb(255 255 255 / 15%);
 }
 .form-button:active {
-	transform: translate(37%, -16%) scale(0.95);
+	transform: scale(0.95);
 }
 
 address > .list {
